@@ -1,0 +1,33 @@
+.view_more_btn {
+    background-color: transparent;
+    border: 1px solid #c5ad81;
+    color: #c5ad81;
+    cursor: pointer;
+    display: block;
+    float: none;
+    font-size: 14px;
+    height: 40px;
+    margin: 0;
+    max-width: 100%;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.notes_bg {
+    float: left;
+    width: 100%;
+}
+.create_album {
+    float: left;
+    padding: 22px 10px 0;
+    text-align: right;
+    width: 100%;
+}
+.gallery_popup text-angular .ta-toolbar {
+    float: left !important;
+    width: 100% !important;
+}

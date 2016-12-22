@@ -1,0 +1,71 @@
+.local-user-sec > a.profile_photo {
+    border: 1px solid #e1e1e1;
+    border-radius: 50%;
+    float: left;
+    height: 55px;
+    margin-right: 10px;
+    max-height: 100px;
+    overflow: hidden;
+    width: 55px;
+}
+a.user_name {
+
+    color:black;
+}
+
+a.user_name:hover{
+
+    color:black;
+    text-decoration: none;
+}
+.local-user-sec img {
+    width: 100%;
+}
+
+/*#forum_listing_tr p#forum_user_address{
+    margin: 0 !important;
+}*/
+.library_detail_tab > h2{ margin-top: 0 !important;}
+
+/*** 13 dec ***/
+.library-grid {
+    margin: 20px 0 0;
+}
+.library-grid .grid-star {
+    margin-top: 0;
+}
+.library-grid td p{ margin: 0 !important;}
+.library-grid table tr td:first-child {
+    color: #373737;
+    font-size: 15px;
+}
+.library-grid table tr td {
+    vertical-align: top;
+    padding:4px;
+}
+.gillie-form-title text-angular .ta-toolbar {
+    float: left !important;
+    width: 100% !important;
+}
+.filter-options > ul {
+    margin: 0;
+}
+.filter-options {
+    float: right;
+}
+.select-category select {
+    height: auto;
+}
+
+.btn-default:hover {
+background: transparent none repeat scroll 0 0;
+border: 2px solid #4a4f39;
+color: #4a4f39;
+}
+button.usr_btn {
+right: 10px;
+top: 15px;
+}
+button.usr_btn {
+background: transparent none repeat scroll 0 0;
+}

@@ -1,0 +1,13 @@
+/*This CSS ids for add and edit forum popup*/
+.title_popup
+{
+    background: rgb(255, 255, 255) none repeat scroll 0 0 !important;
+}
+.ngdialog-content {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+}
+div#forum_popup{max-width:650px;}
+div#forum_popup .ta-editor.ta-html, .ta-scroll-window.form-control{min-height:200px; border-radius:0; border-color:#f0f0f0;}
+div#forum_popup .ta-scroll-window > .ta-bind{min-height:200px;}
+div#forum_popup .ta-root.focussed > .ta-scroll-window.form-control{border-radius:0; border-color:#f0f0f0; box-shadow:none; }
+div#forum_popup .btn-toolbar{margin-left:0;}

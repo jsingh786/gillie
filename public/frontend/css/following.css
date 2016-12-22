@@ -1,0 +1,30 @@
+.view_more_btn {
+    background-color: transparent;
+    border: 1px solid #c5ad81;
+    color: #c5ad81;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 40px;
+    margin: 0;
+    max-width: 100%;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.btn-default:hover {
+    background: transparent none repeat scroll 0 0;
+    border: 2px solid #4a4f39;
+    color: #4a4f39;
+}
+
+button.usr_btn {
+    background: transparent none repeat scroll 0 0;
+    right: 10px;
+    top: 15px;
+}

@@ -1,0 +1,112 @@
+.gallery{
+    padding:20px 0px;
+}
+.delete_btn_span
+{
+    position:absolute;
+    top:10px;
+    left:27px;
+    z-index: 2;
+}
+#post_videos {
+    /* width: 140px;*/
+    min-width: 136px;
+    max-width: 136px;
+}
+/*.no_videos_msg
+}
+{
+    left: 50%;
+    margin-right: -50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}*/
+
+.no_videos_msg
+{
+    display: block;
+    margin: 35px auto 0 !important;
+    text-align: center;
+    width: 100%;
+
+}
+.gallery_video_anchor
+{
+    /*cursor:default;*/
+}
+
+#add_videos .presentation-outer {
+    margin: 20px 0 0 10px;
+}
+
+/*********/
+.ngdialog-content {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+}
+
+#video_popup.title_popup {
+    background: #ffffff none repeat scroll 0 0;
+    border: medium none;
+    height: 450px;
+    max-width: 600px !important;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: auto !important;
+}
+.jwplayer
+{
+    position: absolute !important;
+    left:28% !important;
+
+}
+
+/*#video_popup {
+    margin: 50px auto !important;
+    height: 450px !important;
+}*/
+.jwplayer.jw-reset
+ {
+     margin: 0 0 0 -168px;
+     height:450px !important;
+ }
+
+.gallery_block {
+
+    height: 145px !important;
+}
+/** play button on video thumbnail**/
+.play_icon
+{
+    position: absolute;
+    right: 80px;
+    top: 50px;
+    z-index: 2;
+    cursor:pointer;
+}
+
+/** Delete button on video/album/photo thumb**/
+.delete_btn_span
+{
+    cursor: pointer;
+}
+/*** USER PROFILE GALLERY ***/
+.create_album {padding: 20px 0;text-align: right;}
+
+.gallery_block {display: inline-block;height: 210px;padding: 0 10px 30px;position: relative; margin:0 auto;}
+/*.gallery {text-align: center;}*/ /** Removed by hkaur5 */
+
+/*.gallery_block img {display: inline; max-width:100%; width:160px; position:relative; z-index:999;}*/
+.gallery_block img.gallery_img {display: inline; max-width:100%; position:relative; z-index:1;}
+.gallery_block h5 {color: #494e38;font-size: 14px;font-weight:800; margin-top:5px; text-align:left;  padding-left: 10px;}
+.gallery_block h6 {color: #494e38;font-size: 13px;font-weight:600; margin-top:5px; text-align:left;  padding-left: 10px;}
+.gallery_block  p {height: 124px;padding: 5px;position: relative;text-align: center;width: 160px;margin:0 auto;}
+.bg {background-color: #f2eeea;position: relative;  padding: 0 0 0px;}
+.gallery_block p span {background: none repeat scroll 0 0 #ffffff;border: 1px solid #cccccc;border-radius: 2px;height: 112px;left: 11px;position: absolute;top: -1px;width: 150px;}
+
+
+.bg_gallery
+{
+    padding: 0 0 40px 0 !important;
+}

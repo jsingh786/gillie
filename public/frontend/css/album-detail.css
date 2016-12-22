@@ -1,0 +1,212 @@
+.ngdialog-content {
+     background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+ }
+.title_popup#image_popup
+{
+    max-width: 600px !important;
+    vertical-align: middle;
+    text-align: center;
+    width:auto !important;
+    border:none;
+    background:#FFFFFF;
+    height:600px;
+    position:relative;
+
+
+}
+
+.img_popup
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+#edit_album_name
+{
+    font-size: 20px;
+    font-weight: 300;
+    background: black none repeat scroll 0 0;
+    border: medium none;
+    color: white;
+    font-family: Open Sans;
+    height: 28px;
+    width: 250px;
+}
+.delete_btn_span
+{
+    position:absolute;
+    top:10px;
+    left:27px;
+    z-index: 2;
+}
+#post_photos
+{
+    width:140px;
+}
+.close{
+    top:-11px !important;
+}
+#add_photos .presentation-outer {
+    width: 102.5% !important;
+}
+.multi-photo-upload {
+    margin-left: -10px;
+}
+
+.gallery_block {
+
+    height: 145px !important;
+}
+/**********Remove thumbnail button in photos upload************/
+
+/*
+span.error {
+    margin: 0;
+
+}
+.template-download p {
+    float: left;
+    padding: 0 10px;
+    width: auto;
+}
+.template-download.fade > div {
+    width: 100% !important;
+}
+*/
+
+/**********Remove thumbnail button in video and album upload END************/
+
+/** Delete button on video/album/photo thumb**/
+.delete_btn_span
+{
+    cursor: pointer;
+}
+
+/***************** Jquery File Uploader CSS ********************/
+.template-download.fade {
+    display: inline;
+    float: left;
+    padding: 10px 10px;
+    position: relative;
+}
+.video_presentation .template-download.fade {
+    display: inline;
+    float: left;
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 97%;
+}
+
+.presentation-outer
+{
+    padding-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.delete .ui-button-icon.ui-icon.ui-icon-trash,
+.delete .ui-button-icon-space
+{
+    display:none;
+}
+
+.add_photos table.album_presentation button.remove_thumb.thumbnail
+{
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+.add_photos table.album_presentation button.remove_thumb
+{
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+}
+span.fileinput-button span.ui-button-icon.ui-icon.ui-icon-plusthick{
+    display:none;
+}
+.fileupload-progress {
+    margin: 10px 0 0 0px;
+    width: 96.5%;
+}
+#add_videos .fileupload-progress,
+#add_photos .fileupload-progress
+{
+    margin: 10px 0 0 10px !important;
+}
+.video_presentation button
+{
+    position: relative;
+    background: none;
+    border: none;
+}
+.video_presentation button:hover
+{
+    background: none;
+    border:none;
+}
+
+.ui-progressbar .ui-progressbar-value {
+    margin:0 !important;
+}
+
+#add_album .presentation-outer
+{
+    margin: 10px 0 0 -10px;
+}
+#add_album .template-download,
+#add_photos .template-download {
+
+    height: 124px;
+  /*  width: 29%;*/
+    overflow:hidden;
+}
+.template-download
+{
+    border: 1px solid #ccc;
+    margin: 10px 7px;
+}
+.template-download img {
+    display: inline;
+    /*width: 100%;*/
+}
+.template-download .error {
+    width: 100%;
+}
+.template-download .delete {
+    position: absolute;
+    right: -5px;
+    top: 0px;
+}
+
+.template_thumb
+{
+    padding:0 !important
+}
+
+/** To over ride boostrap CSS**/
+.template-download.fade,
+.fileupload-progress.fade{
+    opacity:1;
+}
+/************** Jquery File Uploader CSS END*******************/
+
+/*** USER PROFILE GALLERY ***/
+.create_album {padding: 20px 0;text-align: right;}
+
+.gallery_block {display: inline-block;height: 210px;padding: 0 10px 30px;position: relative;margin:0 auto;}
+/*.gallery {text-align: center;}*/ /** Removed by hkaur5 */
+
+/*.gallery_block img {display: inline; max-width:100%; width:160px; position:relative; z-index:999;}*/
+.gallery_block img.gallery_img {display: inline; max-width:100%; position:relative; z-index:1;}
+.gallery_block h5 {color: #494e38;font-size: 14px;font-weight:800; margin-top:5px; text-align:left;  padding-left: 10px;}
+.gallery_block h6 {color: #494e38;font-size: 13px;font-weight:600; margin-top:5px; text-align:left;  padding-left: 10px;}
+.gallery_block  p {height: 124px;padding: 5px;position: relative;text-align: center;width: 160px;margin:0 auto;}
+.bg {background-color: #f2eeea;position: relative;  padding: 0 0 0px;}
+.gallery_block p span {background: none repeat scroll 0 0 #ffffff;border: 1px solid #cccccc;border-radius: 2px;height: 112px;left: 11px;position: absolute;top: -1px;width: 150px;}
+
+
+.bg_gallery
+{
+    padding: 0 0 40px 0 !important;
+}

@@ -1,0 +1,39 @@
+.view_more_btn {
+    background-color: transparent;
+    border: 1px solid #c5ad81;
+    color: #c5ad81;
+    cursor: pointer;
+    display: block;
+    float: none;
+    font-size: 14px;
+    height: 40px;
+    margin: 0;
+    max-width: 100%;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+    width: 100%;
+}
+.notification_cross {
+    cursor: pointer;
+    float: right;
+    margin-top: 5px;
+    display:none;
+}
+
+.notification_text{
+    display:inline-block;
+    width: 80%;
+}
+span.notif_loader{
+    display:inline-block;
+}
+.notification_li span img {
+    width: 10px;
+}
+.notification_fade_out {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.4;
+}

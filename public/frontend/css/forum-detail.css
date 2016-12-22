@@ -1,0 +1,58 @@
+.library_comments ul .icons {
+    bottom: 25px;
+    color: #000;
+    float: right;
+    position: absolute;
+    right: 0;
+}
+ .icons a {
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+}
+.library_comments p {
+    padding-right: 40px;
+}
+.library-detail .topic_icons {
+    float: right;
+    font-size: 14px;
+}
+.library-detail .topic_icons a{
+    color: #000;
+}
+.forum_user_name{
+    color:#373737;
+}
+.forum_user_name:hover{
+    color:#494e38;
+    text-decoration: none;
+}
+.library_detail_tab > h2{ margin-top: 0 !important;}
+.library_detail_user {
+
+    margin: 30px 0;
+}
+
+.library_detail_tab p{
+    margin:0;
+}
+.library_comments h4 {
+    color: #494e38;
+    font-size: 20px;
+    font-weight: normal;
+}
+#add_comment {
+    border-radius: 0;
+    padding: 6px 20px;
+}
+.inner-page-main {
+    padding: 40px 0 200px;
+
+}
+.library_comments li {
+    padding-left: 60px;
+}
+.gillie-form-title text-angular .ta-toolbar {
+    float: left !important;
+    width: 100% !important;
+}

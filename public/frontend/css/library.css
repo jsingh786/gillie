@@ -1,0 +1,27 @@
+/** ---25-aug-2016----**/
+.slide-toggle {
+    /*overflow:hidden;*/
+    transition: all linear 0.3s !important;
+}
+.text-danger{
+    color:red;
+    margin:-8px 0 0 0;
+    position: relative;
+    float:left;
+}
+.login_popup
+{
+    background: rgb(255, 255, 255) none repeat scroll 0 0 !important;
+}
+
+.pac-container{
+    z-index:99999 !important;
+    position:fixed !important;
+}
+a.forum_user_name{
+    color: black;
+}
+a.forum_user_name:hover{
+    text-decoration: none;
+    color: black;
+}

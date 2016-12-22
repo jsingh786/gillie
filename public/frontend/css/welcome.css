@@ -1,0 +1,28 @@
+/** ---25-aug-2016----**/
+.slide-toggle {
+    /*overflow:hidden;*/
+    transition: all linear 0.3s !important;
+}
+.ngdialog-content {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+}
+.text-danger{
+    color:red;
+    margin:-8px 0 0 0;
+    position: relative;
+    float:left;
+}
+.login_popup
+{
+    background: rgb(255, 255, 255) none repeat scroll 0 0 !important;
+}
+.title_popup
+{
+    background: rgb(255, 255, 255) none repeat scroll 0 0 !important;
+}
+.pac-container{
+
+    z-index:99999 !important;
+    position:fixed !important;
+
+}

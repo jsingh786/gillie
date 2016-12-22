@@ -1,0 +1,166 @@
+span.error{
+    color:red;
+    margin:-8px 0 0 0;
+    position: relative;
+    float:left;
+    font-size:12px;
+}
+
+#update_profile
+{
+    width:126px;
+}
+
+/** given to over ride bootstrap CSS **/
+.checkbox{
+    margin: 0px !important;
+}
+
+.client-detail .cd_left.follow_message{
+
+    float:right !important;
+}
+/*************** Profile photo CSS *******************/
+#cropContainerEyecandy {
+    border: 2px solid #494e38;
+    border-radius: 5px;
+    float: left;
+    height: 130px;
+    overflow: hidden;
+    margin-right: 20px;
+    position: relative;
+    width: 134px;
+}
+img#user_prof_photo {
+    width: 100%;
+    height: 100%;
+}
+.cd_left h3 {
+    color: #494e38;
+    float: left;
+    font-size: 21px;
+    font-weight: 600;
+    margin-top: 34px;
+    max-width: 140px;
+    width: auto;
+}
+.cd_left:first-child {
+    width: 330px !important;
+}
+
+/******/
+#user-profile .cropControls i.cropControlZoomMuchIn {
+  background-position: 2px 1px;
+}
+#user-profile .cropControls i.cropControlZoomIn {
+  background-position: -19px 1px;
+}
+
+#user-profile .cropControls i.cropControlZoomOut {
+  background-position: -40px 1px;
+}
+#user-profile .cropControls i.cropControlZoomMuchOut {
+  background-position: -59px 1px;
+}
+#user-profile .cropControls i.cropControlCrop {
+  background-position: -79px 1px;
+}
+#user-profile .cropControls i.cropControlReset {
+  background-position: -118px 1px;
+}
+#user-profile .cropControls i {
+  background-image: url("../images/cropperIcons.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  margin: 0;
+  text-align: center;
+  width: 20px;
+}
+#user-profile .cropControls {
+    left: 0;
+    height: 21px;
+    right: 0;
+}
+#user-profile  .cropControls i.cropControlUpload {
+    background-position: -101px 2px;
+}
+#user-profile #cropContainerEyecandy .cropContainerEyecandy_imgUploadForm {
+    position: absolute;
+}
+
+div#cropContainerEyecandy img#user_prof_photo,
+div#cropContainerEyecandy img.croppedImg
+{
+    max-height: 130px !important;
+    max-width: 130px !important;
+}
+/*
+div.cropControls.cropControlsUpload
+{
+    background-color: transparent ;
+}*/
+/*************** Profile photo CSS - ENDS *******************/
+
+/********************* profile left menu*********************/
+#delete_notification {
+    float: right;
+    margin-top: 6px;
+}
+.notification li {
+    float: left;
+    width: 100%;
+}
+#delete_notification > img {
+    width: 8px;
+}
+.notification li:last-child {
+    border: 0 none;
+    padding-bottom: 0;
+}
+.notification_fade_out {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.4;
+}
+
+ul.Trophy_Room.photos_video {
+    margin-bottom: 0px;
+}
+
+.button_tabs button#update_profile {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+ul.notification.notifictaions_list{
+    margin-bottom: 0px;
+}
+
+ul.local_user,
+ul.about_me_info_ul,
+ul.user_notes
+{
+    margin: 0;
+}
+
+/********************* Profile Left menu END *********************/
+
+/*********************** Profile Right menu **********************/
+.about_user
+{
+    position: relative;
+ /*   padding: 0 0 10px 0;*/
+}
+img#img_gallery
+{
+    border:1px solid #cccccc !important;
+}
+/********************* Profile Right menu END *********************/

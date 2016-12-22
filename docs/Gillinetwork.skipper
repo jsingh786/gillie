@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<skipper version="3.0.1.1129" name="gillienetwork" mvc="Without MVC" orm="Doctrine2" uuid="c6a08d96-3702-48cb-aa81-c9fe8c76e6a8">
+  <module name="MainBundle" import-format="Doctrine2Php" import-path="Annotations" uuid="39fa820e-eed1-411d-847b-af7f98772246">
+    <entity name="users" uuid="7726a177-6f76-4755-be06-f6b960a7be09">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="e2b388c9-05a2-434c-8a49-c9b19cadeb53"/>
+      <field name="email" type="string" size="255" required="true" unique="true" uuid="349f1fbd-c3cd-4a2d-9d21-78bc4f5e4d44"/>
+      <field name="password" type="string" size="255" required="true" uuid="5675f75f-d991-4472-bd2e-5ac026131f2c"/>
+      <field name="role_id" type="integer" size="11" required="true" uuid="4b0bca4a-9076-41ac-80b1-938b5c196623"/>
+      <field name="firstname" type="string" size="255" required="true" uuid="f99b5c32-dde8-496c-92ca-d38672c30487"/>
+      <field name="lastname" type="string" size="255" uuid="d462603b-c0a4-40a7-94f8-38f3d4ccd6d7"/>
+      <field name="gender" type="smallint" size="1" uuid="73535c71-05a4-46cb-af5f-2374d459389a"/>
+      <field name="zipcode" type="string" size="255" required="true" uuid="a71c600b-2702-43df-a55e-aa73bf2699e0"/>
+      <field name="profile_image" type="string" size="255" uuid="ea0d8069-a384-4902-b8f7-1a4ffaab43b9"/>
+      <field name="address" type="string" size="255" uuid="a3c569a8-e145-42c5-8426-c5f0c1207128"/>
+      <field name="is_active" type="smallint" size="1" required="true" uuid="b1488092-c369-448d-a04b-fab41fce9572"/>
+      <field name="remember_token" type="string" size="255" required="true" uuid="c7a50bf2-7413-49ec-ba58-150d83e15de7"/>
+      <field name="confirmation_token" type="string" size="255" uuid="8237390d-0e48-4421-959c-4465e9726be7"/>
+      <field name="latitude" type="string" size="20" uuid="cde29003-2dbd-42d0-a102-e10286c6d208"/>
+      <field name="longitude" type="string" size="20" uuid="f410c43e-210f-4386-8325-0d9100b76247"/>
+      <field name="created_at" type="datetime" uuid="702ab7b0-892e-4acc-8a8f-00e8ffdeeba7"/>
+      <field name="updated_at" type="datetime" uuid="6710976e-08cc-405b-bae9-623ea972c7f9"/>
+      <field name="deleted_at" type="datetime" uuid="53e17f51-ccdc-4427-b295-116fc40d5a14"/>
+    </entity>
+    <association from="users" to="roles" caption="Roles Users" owner-alias="users" inverse-alias="userRoles" uuid="9540656e-d375-4937-b2c4-eaaccbfefa17">
+      <association-field from="role_id" to="id"/>
+    </association>
+    <entity name="regions" uuid="df7aede4-0d9b-4781-aa04-620a4fb61444">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="044b29cd-1d4a-4e79-a9ad-57c44deb0511"/>
+      <field name="code" type="string" size="10" required="true" uuid="1b8b9d3d-9fe4-4d89-9c7d-b6500cd202be"/>
+      <field name="name" type="string" size="255" required="true" uuid="671340a5-80d9-4d6a-88d0-2fc844c3cbf1"/>
+      <field name="community_id" type="integer" size="11" uuid="e920485e-01fd-4427-8441-2cd9054aeb23"/>
+      <field name="created_at" type="datetime" uuid="bfecfba9-0729-4db5-86c2-0fff10111ef0"/>
+      <field name="updated_at" type="datetime" uuid="3322955e-df84-4888-89b4-1d66e5b7fa60"/>
+    </entity>
+    <association from="regions" to="community" caption="Community Regions" owner-alias="regions" inverse-alias="community" uuid="1f5baf41-5bd8-41a0-b610-3ca4c9771f2e">
+      <association-field from="community_id" to="id"/>
+    </association>
+    <entity name="community" uuid="2e953f39-f8b9-4c39-b0a8-9f1beaf11dbc">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="e372eabb-f1e3-48b1-b5e7-fce316502313"/>
+      <field name="code" type="string" size="10" required="true" uuid="4150fe3c-0095-4ae9-b870-0384661fa809"/>
+      <field name="name" type="string" size="255" required="true" uuid="41186b89-5c39-4928-badc-60c044cebdd1"/>
+      <field name="created_at" type="datetime" uuid="432583fe-7908-40f7-bf2a-aad8ad8830bd"/>
+      <field name="updated_at" type="datetime" uuid="02f88117-3254-47fc-85b5-567aee07ee8a"/>
+    </entity>
+    <entity name="events" uuid="62d83311-7fa7-48bf-a9ff-0f6306152519">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="325d6f9a-0c33-4657-9d87-813337124d1a"/>
+      <field name="user_id" type="integer" size="11" required="true" uuid="31b59f4b-e810-488a-a79f-7f9dc04015a7"/>
+      <field name="region_id" type="integer" size="11" required="true" uuid="06836254-ae8b-4bdd-b7f7-f782a496604d"/>
+      <field name="address" type="string" size="255" required="true" uuid="cee8855b-1ad0-4c2c-8ce2-c9d952c3f38c"/>
+      <field name="name" type="string" size="255" required="true" uuid="5537f9cb-e129-4c4f-a04f-1e5eeaa185e9"/>
+      <field name="description" type="text" required="true" uuid="825ab9c3-8724-4ba0-b7cf-1f056e0d0271"/>
+      <field name="event_image" type="string" size="255" required="true" uuid="aa382127-4481-4442-95b7-5b321bde6598"/>
+      <field name="from_date" type="date" required="true" uuid="0748084e-67cc-4c4a-9af7-2a5709f4d8dc"/>
+      <field name="to_date" type="date" required="true" uuid="5ae9af5e-1520-4288-86bf-6778f1d2a653"/>
+      <field name="from_time" type="time" required="true" uuid="96d6f23f-6a2c-45ce-99ac-13f39b6c59cf"/>
+      <field name="to_time" type="time" required="true" uuid="e5f4412f-4cd1-43d0-bd3a-a261e82595e6"/>
+      <field name="event_link" type="string" size="255" uuid="2b1acd35-7bca-418e-8492-e72ce705f329"/>
+      <field name="is_published" type="smallint" size="1" required="true" uuid="86ca1e4c-984e-450f-ad40-753771b2e4cd"/>
+      <field name="status" type="smallint" size="1" required="true" uuid="d3c9b158-f503-40c9-a6a0-0ff4e270016f"/>
+      <field name="created_at" type="datetime" uuid="597a196d-5850-452d-97d2-89a8ae3acd42"/>
+      <field name="updated_at" type="datetime" uuid="545ca4fe-5a7f-4c98-9439-6d84eb74fe7e"/>
+      <field name="deleted_at" type="datetime" uuid="6c86af47-ac2e-4ed3-ac19-24f8d631d3fa"/>
+    </entity>
+    <association from="events" to="regions" caption="Regions Events" owner-alias="events" inverse-alias="eventRegion" uuid="b6a344e8-6408-4697-9f8b-c62a7947fee3">
+      <association-field from="region_id" to="id"/>
+    </association>
+    <association from="events" to="users" caption="Users Events" owner-alias="events" inverse-alias="eventUsers" uuid="15d6fcd2-ab17-4957-bc9c-b6f13334f158">
+      <association-field from="user_id" to="id"/>
+    </association>
+    <entity name="forum" uuid="c3469db9-f393-4288-8a33-647c84814e66">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="4adc346e-41c1-4205-bb4a-f92b89670472"/>
+      <field name="title" type="string" size="1000" required="true" uuid="f2bb3e65-be90-4f92-8847-00f9ed631737"/>
+      <field name="status" type="smallint" size="1" required="true" uuid="ee1b5da6-9f5d-4ec8-a174-570a415bd7a2"/>
+      <field name="forum_categories_id" type="integer" size="11" required="true" uuid="cb81de40-a548-47e3-9ba1-e741cbdaa7c5"/>
+      <field name="no_of_views" type="integer" size="11" uuid="12de303f-9aa2-4404-871c-69c6dd2e6c50"/>
+      <field name="created_at" type="datetime" uuid="9666adf0-0774-4b02-bdca-6a18d0944a61"/>
+      <field name="updated_at" type="datetime" uuid="caa8ddf8-22e0-46a2-ae1a-28f9ac7ef367"/>
+      <field name="deleted_at" type="datetime" uuid="dc8e8910-5f58-4da8-80f7-e63e3ee801a7"/>
+      <field name="users_id" type="integer" size="11" uuid="51e20cd2-3863-4cce-83c4-e9e2a8d0aed6"/>
+    </entity>
+    <association from="forum" to="forum_categories" caption="ForumCategories Forum" owner-alias="forum" inverse-alias="forumCategories" uuid="cb3b545b-70f5-42c6-bf39-1bcca4db72a6">
+      <association-field from="forum_categories_id" to="id"/>
+    </association>
+    <association from="forum" to="users" caption="Users Forum" owner-alias="forum" inverse-alias="users" uuid="69e2703c-f190-4017-947d-474bfb610aa9">
+      <association-field from="users_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-remove">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-attributes>
+    </association>
+    <entity name="forum_comments" uuid="30221e83-f83a-4580-9f0c-52fe9c164a1b">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="032aaad6-a13b-4291-92e0-0594a5b66bb3"/>
+      <field name="forum_id" type="integer" size="11" uuid="f46e322c-b00b-4b44-8d3f-237982a70ac0"/>
+      <field name="comment_by_user_id" type="integer" size="11" uuid="cd5f59f6-9438-4be3-a7ad-60d7d00a88a2"/>
+      <field name="message" type="string" size="255" required="true" uuid="5da8495c-c5b9-4535-899b-2076dd471942"/>
+      <field name="status" type="smallint" size="1" required="true" uuid="a40f4491-a07e-44be-b23b-b286f9312a65"/>
+      <field name="created_at" type="datetime" uuid="59bfdfa8-a227-4bd2-969a-aeb9ed8e482b"/>
+      <field name="updated_at" type="datetime" uuid="ecca6762-b25b-4226-b070-546e2c1ba158"/>
+      <field name="deleted_at" type="datetime" uuid="ae56d7d0-38c0-4523-9309-88b630978cfa"/>
+    </entity>
+    <association from="forum_comments" to="forum" caption="Forum ForumComments" owner-alias="forumComments" inverse-alias="forum" uuid="5c099819-f205-4711-bf02-6a12b0addd22">
+      <association-field from="forum_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-remove">true</attribute>
+          </attribute>
+        </attribute>
+      </orm-attributes>
+    </association>
+    <association from="forum_comments" to="users" caption="Users ForumComments" owner-alias="forumComments" inverse-alias="users" uuid="d8445290-799c-4f22-9fe8-abf21a5b623f">
+      <association-field from="comment_by_user_id" to="id"/>
+    </association>
+    <entity name="roles" uuid="a206315f-4ee7-45dc-b00e-1f474a7e3de9">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="b5243bae-0f35-445b-89d2-9b06714d355f"/>
+      <field name="role_name" type="string" size="255" required="true" uuid="3db57aa2-a66a-4ca6-a5f9-11b295805eaf"/>
+    </entity>
+    <entity name="banner" uuid="74fa1f65-7b90-44e0-9186-4dcc3969a148">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="80418287-6f1d-4cfa-be2f-22e4556a6b72"/>
+      <field name="image" type="string" size="255" uuid="d895c87b-e6fc-4f36-953e-c75bda793b29"/>
+      <field name="title" type="string" size="255" uuid="73df9854-43ee-44ab-b0e9-544058ddbd4c"/>
+      <field name="description" type="text" uuid="e2a38636-afd2-46fa-86db-5201c482ede9"/>
+      <field name="status" type="smallint" size="1" required="true" uuid="4a4cba04-519a-49f9-a330-4d0abe1d53f8"/>
+      <field name="created_at" type="datetime" uuid="49e28ca6-3d51-4ca8-86a0-c6d0d1645dd8"/>
+      <field name="updated_at" type="datetime" uuid="77b850af-d6d4-4e4c-866c-211d51cc7717"/>
+      <field name="deleted_at" type="datetime" uuid="4f9ece8c-f9a7-4122-acdc-d1cd0b4dc31a"/>
+    </entity>
+    <entity name="news" uuid="0047bfbe-d19c-452f-901f-56728fafd8d7">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="7ae14221-c983-4b78-ac47-922861288efc"/>
+      <field name="title" type="string" size="100" required="true" uuid="5a818b9b-9723-4203-998b-2319bfcb09da"/>
+      <field name="image" type="string" size="255" required="true" uuid="38eb2532-cbc6-47f7-877e-fe67dc75ca8e"/>
+      <field name="description" type="text" required="true" uuid="93e7feb6-fedf-49da-a040-563dc8dcaa5e"/>
+      <field name="created_at" type="datetime" uuid="afe977e6-59b9-4cb9-bf69-2434f3b0d472"/>
+      <field name="updated_at" type="datetime" uuid="b8371f1a-19e7-4344-b603-39f0d8592595"/>
+      <field name="deleted_at" type="datetime" uuid="cd3bf3dc-0dd8-4eca-bc5a-663ff1c3797d"/>
+    </entity>
+    <entity name="admin" uuid="a7e6bcf4-871f-43e0-808b-7e20964998cb">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="7f044b18-62cc-4643-99c4-f0e6600c09a1"/>
+      <field name="firstname" type="string" size="255" required="true" uuid="6ebfc0ae-7fcc-409b-a722-0afcb513261f"/>
+      <field name="lastname" type="string" size="255" required="true" uuid="9b678b74-5d9e-4f62-b2a6-f19e866caa1e"/>
+      <field name="email" type="string" size="255" required="true" unique="true" uuid="cf510f56-64e0-482a-94d9-d1a21fe96b7b"/>
+      <field name="password" type="string" size="255" required="true" uuid="53de4711-f615-4405-bd4b-964d11877bd1"/>
+      <field name="role_id" type="integer" size="11" uuid="804529dd-fc62-49f4-a7e1-57ed9b6e1b94"/>
+      <field name="is_active" type="smallint" size="1" required="true" uuid="69c45f54-1f48-4605-ac91-718cc204fa7a"/>
+      <field name="created_at" type="datetime" uuid="9c741540-2bb2-4211-b296-2a2d9e2a8bbc"/>
+      <field name="updated_at" type="datetime" uuid="5e94ec6c-5e3f-4be2-97e8-d1923095bf24"/>
+      <field name="deleted_at" type="datetime" uuid="8d7cf7a2-549f-40b8-beb8-74dd8c1c67c0"/>
+      <field name="rememer_token" type="string" size="255" uuid="08621cae-8ef3-4611-a4f6-89c775bcde6c"/>
+      <orm-attributes>
+        <attribute name="table">admin</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="admin" to="roles" caption="Roles AdminCredentials" owner-alias="adminCredentials" inverse-alias="adminRoles" uuid="4940885d-e7f1-4917-872b-a253906991b5">
+      <association-field from="role_id" to="id"/>
+    </association>
+    <entity name="cms" uuid="43e0a74a-f557-49de-9e3d-8b084611a0d7">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="58faba8e-b535-438a-b6e9-9accf2fbbca5"/>
+      <field name="slug" type="string" size="255" required="true" uuid="39718c7a-6039-4843-b430-ac66edd0992a"/>
+      <field name="title" type="string" size="255" uuid="796096dc-0d95-42df-badd-2bb6291548a2"/>
+      <field name="description" type="text" uuid="ff03b4fd-4c9d-4115-b8d7-ffa0da3e170c"/>
+      <field name="status" type="smallint" size="1" uuid="c50433aa-985f-47da-bb14-d7f40a0d74ad"/>
+      <field name="created_at" type="datetime" uuid="7a076fb0-bce4-4e91-8710-b383aa6e42d4"/>
+      <field name="updated_at" type="datetime" uuid="c1ae8a0b-b68f-4c4a-8872-8493ef9d48e0"/>
+      <field name="deleted_at" type="datetime" uuid="312d23cc-bc4f-43b8-8b3c-6f8b32aa3176"/>
+    </entity>
+    <entity name="profile_rating_algo" uuid="e75a2d32-2759-439a-8deb-62c0c7285882">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="5240de4b-af36-449d-9eb3-6890d50afb01"/>
+      <field name="star" type="integer" size="11" required="true" uuid="54f50db9-4dc7-4f31-9bd3-21ede15921ff"/>
+      <field name="points" type="float" required="true" uuid="3cd67092-22df-4b73-85bb-921911d837ad"/>
+      <field name="created_at" type="datetime" uuid="57303cb6-e94b-4778-a679-817e69b6abc2"/>
+      <field name="updated_at" type="datetime" uuid="fc4b6a0b-e56b-4014-bb6d-535c97d3976f"/>
+      <field name="deleted_at" type="datetime" uuid="191e0c13-cfae-42fd-8348-58bc3eede99a"/>
+    </entity>
+    <entity name="password_resets" uuid="06cb3d55-91d6-4a2e-94dd-48ff683c1b24">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="eb9105f3-9851-4ea9-88fe-7ece1e7a6a3c"/>
+      <field name="email" type="string" size="255" required="true" uuid="b31d5a04-b6ba-42ad-8469-bdb8c28d9d90"/>
+      <field name="token" type="string" size="255" required="true" uuid="44801feb-24e7-4510-968f-1310db2b132b"/>
+      <field name="created_at" type="datetime" uuid="c9384e35-df27-4151-8684-8a8fd45ad6d1"/>
+    </entity>
+    <entity name="forum_categories" uuid="2babf3d2-e474-41c5-9e90-c4215f96b8ef">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="324bcd7e-ca8f-45e3-bf84-d77f5283c9df"/>
+      <field name="name" type="string" size="255" uuid="6d21d5a9-7028-4d04-9a57-4e6b83f714fa"/>
+      <field name="created_at" type="datetime" uuid="06720981-c55e-4670-8494-c85a3ac6b7f6"/>
+    </entity>
+    <entity name="videos" uuid="e0806ebb-2b51-41b2-9d60-b448164288ad">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="2cc7389c-d2d5-44c2-b13b-f9e364241f4e"/>
+      <field name="video_name" type="string" size="255" uuid="b554d397-7808-422b-baf6-8f36019c2b60"/>
+      <field name="caption" type="string" size="255" uuid="2517c5d7-eef8-4650-9a34-94697cd51606"/>
+      <field name="users_id" type="integer" size="11" uuid="2da49899-d99b-4717-953b-81ed118605e2"/>
+      <field name="created_at" type="datetime" uuid="3cd013aa-594f-418f-a98b-2f211754d095"/>
+      <field name="updated_at" type="datetime" uuid="5c9ed6f2-29c1-4239-8e9c-b961e919146b"/>
+      <field name="deleted_at" type="datetime" uuid="0ab30355-b0da-43ac-983f-57f40136be4a"/>
+    </entity>
+    <association from="videos" to="users" caption="Users Videos" owner-alias="videos" inverse-alias="users" uuid="fe581468-d090-4672-ac14-8af039d062e9">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <entity name="album" uuid="605aaefd-4892-43f3-b0a8-73089d694375">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="a0c5ee04-ad97-4a62-a897-4a557f094b66"/>
+      <field name="caption" type="string" size="255" uuid="86aac241-7ae4-4d58-8ddc-447c3f3b1e07"/>
+      <field name="users_id" type="integer" size="11" uuid="3276c185-8d5f-407b-bfee-8e3cce82b70a"/>
+      <field name="created_at" type="datetime" uuid="38ced1d0-9945-4383-a2d8-fe81bf45eec3"/>
+      <field name="updated_at" type="datetime" uuid="c1d8446c-b31c-4b93-92af-9f10af149f96"/>
+      <field name="deleted_at" type="datetime" uuid="7b9a0476-949f-4889-bb63-bb4b3b5bc254"/>
+    </entity>
+    <association from="album" to="users" caption="Users Albums" owner-alias="albums" inverse-alias="users" uuid="0d7a8073-fa16-40d0-848f-acdc79114273">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <entity name="photos" uuid="ef8dcebd-2db4-403b-9cd7-3deb82828a25">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="58a62e3b-a06e-429a-98de-b594fd011252"/>
+      <field name="caption" type="string" size="255" uuid="7ac7f419-2c37-4ced-8aa8-042e41f24627"/>
+      <field name="image" type="string" size="255" uuid="46ae4843-f8c8-4b69-b71f-ea00758b8ecb"/>
+      <field name="album_id" type="integer" size="11" uuid="c34539a8-c73f-4e0f-a673-e4844cc7b123"/>
+      <field name="created_at" type="datetime" uuid="b0fa00c4-d087-424e-b163-20ee9754ba1f"/>
+      <field name="updated_at" type="datetime" uuid="cbebd302-2c50-4bf6-8490-262dcece1a6a"/>
+      <field name="deleted_at" type="datetime" uuid="7b204640-3cd1-4ef8-8c5a-d41bd7f2d079"/>
+    </entity>
+    <association from="photos" to="album" caption="Albums Photos" owner-alias="photos" inverse-alias="albums" uuid="7b768585-dc5e-4cdc-ad05-1b1ec0c2fee8">
+      <association-field from="album_id" to="id"/>
+    </association>
+    <entity name="user_profile" uuid="199b01bb-688e-4f8e-b743-d24556532da0">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="8c5cfc48-ea87-4abb-8900-dca414e71c77"/>
+      <field name="users_id" type="integer" size="11" unique="true" uuid="c0034b7f-cbc0-4008-b490-8dba4d7f73b9"/>
+      <field name="dob" type="date" uuid="d19553fc-90c6-4565-9616-be88716936fc"/>
+      <field name="phone_number" type="string" size="30" uuid="e4cb6c56-f9aa-40d7-974e-b6532d42e54d"/>
+      <field name="occupation" type="string" size="255" uuid="e6cfcbbc-dd69-4b1d-81c0-df61a767b22a"/>
+      <field name="work" type="string" size="255" uuid="9808e5fa-e84c-43cc-a14c-2beadfadef3c"/>
+      <field name="college" type="string" size="255" uuid="6b123d2f-5794-4dc1-9f4e-79c304f57be4"/>
+      <field name="school" type="string" size="255" uuid="e8299802-fc2c-4e18-998f-d45ff417f3cd"/>
+    </entity>
+    <association from="user_profile" to="users" caption="Users UserProfile" owner-alias="userProfile" inverse-alias="users" uuid="a33f9578-1ff0-4a5b-ad07-a60d551325a9">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <entity name="user_activities" uuid="cb6de40c-ef96-4a08-997a-3dbe7fae8da9">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="365b5bb6-6e34-40a1-a00c-6b4b13753d67"/>
+      <field name="users_id" type="integer" size="11" required="true" uuid="9471420c-25e7-446c-911e-ead3640e442b"/>
+      <field name="activities_id" type="integer" size="11" required="true" uuid="04343c55-f2ed-435a-aa62-bdbcbe769d4a"/>
+    </entity>
+    <association from="user_activities" to="users" caption="Users UserActivities" owner-alias="userActivities" inverse-alias="users" uuid="dacadeca-d758-4b50-b444-a6d5c8440344">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <association from="user_activities" to="activities" caption="Activities UserActivities" owner-alias="userActivities" inverse-alias="activities" uuid="70025574-2d9d-46c2-a001-075dfc3c1f28">
+      <association-field from="activities_id" to="id"/>
+    </association>
+    <entity name="user_weapons" uuid="a0b3947d-f511-4d63-9595-2e0e347d3d3c">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="5e35f77f-1279-44a5-9965-8d0ea04c37bb"/>
+      <field name="users_id" type="integer" size="11" required="true" uuid="562a471f-7f33-491a-8123-ec5bc55eb149"/>
+      <field name="weapons_id" type="integer" size="11" required="true" uuid="1fe1d769-88b4-43b4-b6b9-7e5306c34fd5"/>
+      <field name="favourite" description="True if user has selected this weapon as favourite" type="boolean" uuid="00802faa-9762-48bb-be4a-f1858d096799"/>
+    </entity>
+    <association from="user_weapons" to="users" caption="Users UserWeapons" owner-alias="userWeapons" inverse-alias="users" uuid="bad8b89d-8790-4820-bf62-e98a03ee64a6">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <association from="user_weapons" to="Weapons" caption="Weapons UserWeapons" owner-alias="userWeapons" inverse-alias="weapons" uuid="f02e8f90-5499-4aa4-939d-1e4c2c1ed5f2">
+      <association-field from="weapons_id" to="id"/>
+    </association>
+    <entity name="user_species" uuid="8bd0518b-b5bc-4af4-8c5f-207c90fae484">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="15b93b84-7476-409c-8e19-9ec9eb35f348"/>
+      <field name="users_id" type="integer" size="11" required="true" uuid="31230fb2-1a11-46a5-8f2d-177ea3b1dd20"/>
+      <field name="species_id" type="integer" size="11" required="true" uuid="8f080602-6503-49cd-bfe9-98d59a6f8dfa"/>
+    </entity>
+    <association from="user_species" to="users" caption="Users UserSpecies" owner-alias="userSpecies" inverse-alias="users" uuid="541282f7-d236-4fc5-b7bb-a67267409565">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <association from="user_species" to="species" caption="Species UserSpecies" owner-alias="userSpecies" inverse-alias="species" uuid="15d69d63-7234-423e-bcc0-2adae96ac91a">
+      <association-field from="species_id" to="id"/>
+    </association>
+    <entity name="user_properties" uuid="37ed74b4-6c67-4fa3-a6ad-ff242c13cefb">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="171f3a4d-7efb-40cc-a3b7-af366f75a5f1"/>
+      <field name="users_id" type="integer" size="11" required="true" uuid="77e6c293-bff5-497a-b6a9-014624993d09"/>
+      <field name="properties_id" type="integer" size="11" required="true" uuid="422d5bba-6443-498f-8abc-d423c74d9eec"/>
+    </entity>
+    <association from="user_properties" to="users" caption="Users UserProperties" owner-alias="userProperties" inverse-alias="users" uuid="16b92ac9-251a-40c6-881c-e9c9d8a38cf7">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <association from="user_properties" to="properties" caption="Properties UserProperties" owner-alias="userProperties" inverse-alias="properties" uuid="bc65b9ce-0a1b-4cda-9aba-fee4661b9b93">
+      <association-field from="properties_id" to="id"/>
+    </association>
+    <entity name="user_hunting_land" uuid="c71eea71-38eb-4f7f-bfc8-445d1d9f79b8">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="a27642dc-4091-4423-b20b-20a6a3864e2a"/>
+      <field name="hunting_land_id" type="integer" uuid="32f89d60-9fd6-4324-90ba-226ecdaee0e1"/>
+      <field name="users_id" type="integer" size="11" uuid="2a87d7f2-2e6c-46f8-9e0f-76ac422a7a15"/>
+      <field name="favourite" description="True if user has selected this hunting land as favourite." type="boolean" uuid="a2a5b9e2-9c4e-45cc-9e9e-341c5fce9efe"/>
+    </entity>
+    <association from="user_hunting_land" to="hunting_land" caption="HuntingLand UserHuntingLand" owner-alias="userHuntingLand" inverse-alias="huntingLand" uuid="75a6d23a-ecc4-4090-bafc-e4fddbe1d04b">
+      <association-field from="hunting_land_id" to="id"/>
+    </association>
+    <association from="user_hunting_land" to="users" caption="Users UserHuntingLand" owner-alias="userHuntingLand" inverse-alias="users" uuid="1dbb235e-c7e7-4bcb-8fca-7008d96dce50">
+      <association-field from="users_id" to="id"/>
+    </association>
+    <entity name="species" uuid="eafce036-a956-410c-a5e2-6844df21b635">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="decfe5a0-e994-4d01-a82c-00973654c265"/>
+      <field name="name" type="string" size="255" required="true" uuid="1be53771-b18e-474a-ba8d-ec371871a711"/>
+    </entity>
+    <entity name="Weapons" uuid="a9ac0fd4-ecd4-4a27-9560-3a0b216145ca">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="02642ab0-7849-4b7b-8b7e-d8c7ee6a9aad"/>
+      <field name="name" type="string" size="255" required="true" uuid="30f1f7bc-f3ff-45f7-8045-c313d1be3c53"/>
+    </entity>
+    <entity name="properties" uuid="830ced17-93ad-422f-9c3b-36f4ba5af4a0">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="d261f818-97d9-4458-adb4-4f02782083ee"/>
+      <field name="name" type="string" size="255" required="true" uuid="0a3e5350-0f6d-4925-9c85-7ab63db4d45e"/>
+    </entity>
+    <entity name="activities" uuid="93d927be-2151-4778-9028-f28517f4dee4">
+      <field name="id" type="integer" size="11" required="true" unique="true" primary="true" auto-increment="true" uuid="f01de465-7835-4301-ab3e-4f95eb0df3ab"/>
+      <field name="name" type="string" size="255" required="true" uuid="308127c4-c0e0-4d0e-a487-71c7d0837afa"/>
+    </entity>
+    <entity name="hunting_land" uuid="99b0c3b7-c914-450a-bbfa-9a0734f35837">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="a08780d4-438a-4a98-96b3-d26b678b50f6"/>
+      <field name="name" type="text" size="255" uuid="1c31fcb8-2c5f-4bcf-a97e-bd718761e03a"/>
+    </entity>
+    <region caption="user_profile" uuid="ab80741d-e114-403c-86b6-9f6fe0913fad">
+      <entity-ref name="user_profile"/>
+      <entity-ref name="user_activities"/>
+      <entity-ref name="user_weapons"/>
+      <entity-ref name="user_species"/>
+      <entity-ref name="user_properties"/>
+      <entity-ref name="user_hunting_land"/>
+      <entity-ref name="species"/>
+      <entity-ref name="Weapons"/>
+      <entity-ref name="properties"/>
+      <entity-ref name="activities"/>
+      <entity-ref name="hunting_land"/>
+    </region>
+    <region caption="forum" uuid="ddbc64de-31e5-47b3-b7a9-80fd6314aa1f">
+      <entity-ref name="forum"/>
+      <entity-ref name="forum_comments"/>
+      <entity-ref name="forum_categories"/>
+    </region>
+    <orm-attributes>
+      <attribute name="namespace">App\Entity</attribute>
+      <attribute name="filename-format">entity-name-only</attribute>
+    </orm-attributes>
+  </module>
+  <visual-data>
+    <entity uuid="0047bfbe-d19c-452f-901f-56728fafd8d7" bg-color="4294967295" hdr-color="4292006610" position-x="652" position-y="-82" size-x="0" size-x2="116" size-y="0" size-y2="115"/>
+    <entity uuid="06cb3d55-91d6-4a2e-94dd-48ff683c1b24" bg-color="4294967295" hdr-color="4292006610" position-x="186" position-y="256" size-x="0" size-x2="20" size-y="0" size-y2="20"/>
+    <association uuid="0d7a8073-fa16-40d0-848f-acdc79114273" color="4288059030"/>
+    <association uuid="15d69d63-7234-423e-bcc0-2adae96ac91a" color="4288059030"/>
+    <association uuid="15d6fcd2-ab17-4957-bc9c-b6f13334f158" color="4294901760"/>
+    <association uuid="16b92ac9-251a-40c6-881c-e9c9d8a38cf7" color="4288059030"/>
+    <entity uuid="199b01bb-688e-4f8e-b743-d24556532da0" bg-color="4294967295" hdr-color="4292006610" position-x="20" position-y="26" size-x="0" size-x2="139" size-y="0" size-y2="129"/>
+    <association uuid="1dbb235e-c7e7-4bcb-8fca-7008d96dce50" color="4288059030"/>
+    <association uuid="1f5baf41-5bd8-41a0-b610-3ca4c9771f2e" color="4288059030"/>
+    <entity uuid="2babf3d2-e474-41c5-9e90-c4215f96b8ef" bg-color="4294967295" hdr-color="4292006610" position-x="355" position-y="123" size-x="0" size-x2="114" size-y="0" size-y2="73"/>
+    <entity uuid="2e953f39-f8b9-4c39-b0a8-9f1beaf11dbc" bg-color="4294967295" hdr-color="4292006610" position-x="-51" position-y="-33" size-x="0" size-x2="116" size-y="0" size-y2="87"/>
+    <entity uuid="30221e83-f83a-4580-9f0c-52fe9c164a1b" bg-color="4294967295" hdr-color="4292006610" position-x="522" position-y="33" size-x="0" size-x2="167" size-y="0" size-y2="129"/>
+    <entity uuid="37ed74b4-6c67-4fa3-a6ad-ff242c13cefb" bg-color="4294967295" hdr-color="4292006610" position-x="648" position-y="24" size-x="0" size-x2="130" size-y="0" size-y2="59"/>
+    <module uuid="39fa820e-eed1-411d-847b-af7f98772246" bg-color="4293391869" position-x="61" position-y="72" size-x="77" size-x2="1047" size-y="102" size-y2="1291"/>
+    <entity uuid="43e0a74a-f557-49de-9e3d-8b084611a0d7" bg-color="4294967295" hdr-color="4292006610" position-x="-30" position-y="404" size-x="0" size-x2="116" size-y="0" size-y2="129"/>
+    <association uuid="4940885d-e7f1-4917-872b-a253906991b5" color="4278190335"/>
+    <association uuid="541282f7-d236-4fc5-b7bb-a67267409565" color="4288059030"/>
+    <association uuid="5c099819-f205-4711-bf02-6a12b0addd22" color="4288059030"/>
+    <entity uuid="605aaefd-4892-43f3-b0a8-73089d694375" bg-color="4294967295" hdr-color="4292006610" position-x="710" position-y="436" size-x="0" size-x2="116" size-y="0" size-y2="101"/>
+    <entity uuid="62d83311-7fa7-48bf-a9ff-0f6306152519" bg-color="4294967295" hdr-color="4292006610" position-x="668" position-y="156" size-x="0" size-x2="132" size-y="0" size-y2="255"/>
+    <association uuid="69e2703c-f190-4017-947d-474bfb610aa9" color="4278190335"/>
+    <association uuid="70025574-2d9d-46c2-a001-075dfc3c1f28" color="4288059030"/>
+    <entity uuid="74fa1f65-7b90-44e0-9186-4dcc3969a148" bg-color="4294967295" hdr-color="4292006610" position-x="481" position-y="-85" size-x="0" size-x2="116" size-y="0" size-y2="115"/>
+    <association uuid="75a6d23a-ecc4-4090-bafc-e4fddbe1d04b" color="4288059030"/>
+    <entity uuid="7726a177-6f76-4755-be06-f6b960a7be09" bg-color="4294967295" hdr-color="4292006610" position-x="248" position-y="-86" size-x="0" size-x2="158" size-y="0" size-y2="269"/>
+    <association uuid="7b768585-dc5e-4cdc-ad05-1b1ec0c2fee8" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" color="4288059030"/>
+    <entity uuid="830ced17-93ad-422f-9c3b-36f4ba5af4a0" bg-color="4294967295" hdr-color="4292006610" position-x="661" position-y="217" size-x="0" size-x2="101" size-y="0" size-y2="45"/>
+    <entity uuid="8bd0518b-b5bc-4af4-8c5f-207c90fae484" bg-color="4294967295" hdr-color="4292006610" position-x="339" position-y="23" size-x="0" size-x2="121" size-y="0" size-y2="59"/>
+    <entity uuid="93d927be-2151-4778-9028-f28517f4dee4" bg-color="4294967295" hdr-color="4292006610" position-x="182" position-y="220" size-x="0" size-x2="101" size-y="0" size-y2="45"/>
+    <association uuid="9540656e-d375-4937-b2c4-eaaccbfefa17" color="4294901760"/>
+    <entity uuid="99b0c3b7-c914-450a-bbfa-9a0734f35837" bg-color="4294967295" hdr-color="4292006610" position-x="828" position-y="220" size-x="0" size-x2="94" size-y="0" size-y2="45"/>
+    <entity uuid="a0b3947d-f511-4d63-9595-2e0e347d3d3c" bg-color="4294967295" hdr-color="4292006610" position-x="492" position-y="23" size-x="0" size-x2="125" size-y="0" size-y2="59"/>
+    <entity uuid="a206315f-4ee7-45dc-b00e-1f474a7e3de9" bg-color="4294967295" hdr-color="4292006610" position-x="33" position-y="-89" size-x="0" size-x2="121" size-y="0" size-y2="45"/>
+    <association uuid="a33f9578-1ff0-4a5b-ad07-a60d551325a9" color="4294901760"/>
+    <entity uuid="a7e6bcf4-871f-43e0-808b-7e20964998cb" bg-color="4294967295" hdr-color="4292006610" position-x="438" position-y="187" size-x="0" size-x2="143" size-y="0" size-y2="171"/>
+    <entity uuid="a9ac0fd4-ecd4-4a27-9560-3a0b216145ca" bg-color="4294967295" hdr-color="4292006610" position-x="493" position-y="216" size-x="0" size-x2="101" size-y="0" size-y2="45"/>
+    <region uuid="ab80741d-e114-403c-86b6-9f6fe0913fad" bg-color="4294757096" position-x="73" position-y="824" size-x="0" size-x2="947" size-y="23" size-y2="290"/>
+    <association uuid="b6a344e8-6408-4697-9f8b-c62a7947fee3" color="4288059030"/>
+    <association uuid="bad8b89d-8790-4820-bf62-e98a03ee64a6" caption1-position-x="40" caption1-position-y="-2" center-position-x="0" center-position-y="0" color="4288059030"/>
+    <association uuid="bc65b9ce-0a1b-4cda-9aba-fee4661b9b93" color="4288059030"/>
+    <entity uuid="c3469db9-f393-4288-8a33-647c84814e66" bg-color="4294967295" hdr-color="4292006610" position-x="11" position-y="53" size-x="0" size-x2="162" size-y="0" size-y2="143"/>
+    <project uuid="c6a08d96-3702-48cb-aa81-c9fe8c76e6a8" size-x="66" size-x2="1092" size-y="80" size-y2="1371"/>
+    <entity uuid="c71eea71-38eb-4f7f-bfc8-445d1d9f79b8" bg-color="4294967295" hdr-color="4292006610" position-x="783" position-y="70" size-x="0" size-x2="141" size-y="0" size-y2="59"/>
+    <association uuid="cb3b545b-70f5-42c6-bf39-1bcca4db72a6" color="4288059030"/>
+    <entity uuid="cb6de40c-ef96-4a08-997a-3dbe7fae8da9" bg-color="4294967295" hdr-color="4292006610" position-x="185" position-y="26" size-x="0" size-x2="121" size-y="0" size-y2="59"/>
+    <association uuid="d8445290-799c-4f22-9fe8-abf21a5b623f" color="4294901760"/>
+    <association uuid="dacadeca-d758-4b50-b444-a6d5c8440344" color="4288059030"/>
+    <region uuid="ddbc64de-31e5-47b3-b7a9-80fd6314aa1f" bg-color="4292080297" position-x="168" position-y="569" size-x="0" size-x2="695" size-y="15" size-y2="207"/>
+    <entity uuid="df7aede4-0d9b-4781-aa04-620a4fb61444" bg-color="4294967295" hdr-color="4292006610" position-x="-45" position-y="197" size-x="0" size-x2="136" size-y="0" size-y2="101"/>
+    <entity uuid="e0806ebb-2b51-41b2-9d60-b448164288ad" bg-color="4294967295" hdr-color="4292006610" position-x="392" position-y="406" size-x="0" size-x2="129" size-y="0" size-y2="115"/>
+    <entity uuid="e75a2d32-2759-439a-8deb-62c0c7285882" bg-color="4294967295" hdr-color="4292006610" position-x="-31" position-y="549" size-x="0" size-x2="114" size-y="0" size-y2="101"/>
+    <entity uuid="eafce036-a956-410c-a5e2-6844df21b635" bg-color="4294967295" hdr-color="4292006610" position-x="335" position-y="216" size-x="0" size-x2="101" size-y="0" size-y2="45"/>
+    <entity uuid="ef8dcebd-2db4-403b-9cd7-3deb82828a25" bg-color="4294967295" hdr-color="4292006610" position-x="535" position-y="413" size-x="0" size-x2="116" size-y="0" size-y2="115"/>
+    <association uuid="f02e8f90-5499-4aa4-939d-1e4c2c1ed5f2" color="4288059030"/>
+    <association uuid="fe581468-d090-4672-ac14-8af039d062e9" color="4288059030"/>
+  </visual-data>
+</skipper>
